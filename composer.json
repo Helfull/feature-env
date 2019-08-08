@@ -1,0 +1,37 @@
+{
+    "name": "helfull/feature-env",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "type": "project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Helfull\\FeatureEnv\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Helfull\\FeatureEnv\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "illuminate/support": "^5.5"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.4",
+        "phpunit/phpunit": "^8.3"
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {},
+            "providers": [
+                "Helfull\\FeatureEnv\\FeatureEnvServiceProvider"
+            ]
+        }
+    }
+}
