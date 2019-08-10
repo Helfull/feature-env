@@ -2,8 +2,7 @@ workflow "phpunit / phpinsights / php-cs-fixer" {
   on = "push"
   resolves = [
     "phpunit",
-    "phpinsights",
-    "auto-commit-php-cs-fixer",
+    "phpinsights"
   ]
 }
 
