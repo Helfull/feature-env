@@ -1,4 +1,4 @@
-workflow "phpunit / phpinsights / php-cs-fixer" {
+workflow "on push" {
   on = "push"
   resolves = [
     "phpunit",
@@ -6,22 +6,18 @@ workflow "phpunit / phpinsights / php-cs-fixer" {
   ]
 }
 
-# Install composer dependencies
 action "composer install" {
-  uses = "MilesChou/composer-action@master"
-  args = "install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist"
+  uses = "pxgamer/composer-action@v1.0.1"
+  args = "install"
 }
 
-# Run phpunit testsuite
 action "phpunit" {
   needs = ["composer install"]
-  uses = "./actions/run-phpunit/"
-  args = "tests/"
+  uses = "franzliedke/gh-action-php@master"
+  runs = "php7.1 vendor/bin/phpunit"
 }
 
-# Run phpinsights
 action "phpinsights" {
   needs = ["composer install"]
-  uses = "stefanzweifel/laravel-phpinsights-action@v1.0.0"
-  args = "-v --min-quality=80 --min-complexity=80 --min-architecture=80 --min-style=80"
+  uses = "stefanzweifel/phpinsights-action@v1.0.0"
 }
