@@ -26,19 +26,3 @@ action "phpinsights" {
   uses = "stefanzweifel/laravel-phpinsights-action@v1.0.0"
   args = "-v --min-quality=80 --min-complexity=80 --min-architecture=80 --min-style=80"
 }
-
-# Run php-cs-fixer
-action "php-cs-fixer" {
-  uses = "docker://oskarstark/php-cs-fixer-ga"
-}
-
-action "auto-commit-php-cs-fixer" {
-  needs = ["php-cs-fixer"]
-  uses = "stefanzweifel/git-auto-commit-action@v1.0.0"
-  secrets = ["GITHUB_TOKEN"]
-  env = {
-    COMMIT_MESSAGE = "Apply php-cs-fixer changes"
-    COMMIT_AUTHOR_EMAIL  = "jon.doe@example.com"
-    COMMIT_AUTHOR_NAME = "Jon Doe"
-  }
-}
