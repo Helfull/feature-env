@@ -14,10 +14,16 @@ action "composer install" {
 action "phpunit" {
   needs = ["composer install"]
   uses = "franzliedke/gh-action-php@master"
-  runs = "php7.1 vendor/bin/phpunit"
+  runs = "php7.2 vendor/bin/phpunit"
 }
 
 action "phpinsights" {
   needs = ["composer install"]
   uses = "stefanzweifel/phpinsights-action@v1.0.0"
+}
+
+action "phpcbf" {
+  needs = ["composer install"]
+  uses = "franzliedke/gh-action-php@master"
+  runs = "php7.2 vendor/bin/phpcbf"
 }
