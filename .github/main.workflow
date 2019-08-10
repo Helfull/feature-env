@@ -2,7 +2,8 @@ workflow "on push" {
   on = "push"
   resolves = [
     "phpunit",
-    "phpinsights"
+    "phpinsights",
+    "phpcbf"
   ]
 }
 
