@@ -1,14 +1,17 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Helfull\FeatureEnv;
 
-use Illuminate\Contracts\Config\Repository as ConfigRepository;
-
 class FeatureEnv
 {
-    /** @var array */
+    /** @var array<string, array<string>> */
     private $config;
 
+    /**
+     * @param array<string, array<string>> $config
+     */
     public function __construct(array $config)
     {
         $this->config = $config;
