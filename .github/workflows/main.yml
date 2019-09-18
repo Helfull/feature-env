@@ -19,3 +19,5 @@ jobs:
       run: php ./vendor/bin/phpcbf
     - name: phpunit
       run: php ./vendor/bin/phpunit
+    - name: phpinsights
+      run: php ./vendor/bin/phpinsights -n
