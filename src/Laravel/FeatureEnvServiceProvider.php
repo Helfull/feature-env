@@ -8,8 +8,10 @@ class FeatureEnvServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->singleton('feature', function ($app) {
-            return new FeatureEnv($app->make('config')->get('feature'));
+        $this->app->singleton('feature', static function ($app) {
+            $loader = $app->make('config')->get('feature.loader');
+            $loader = $app->make($loader);
+            return new FeatureEnv($loader->load());
         });
     }
 
