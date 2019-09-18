@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Helfull\FeatureEnv;
 
@@ -6,6 +6,7 @@ use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class FeatureEnv
 {
+    /** @var array */
     private $config;
 
     public function __construct(array $config)
